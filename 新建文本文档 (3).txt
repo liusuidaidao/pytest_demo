@@ -1,0 +1,42 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Case List</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.css' % }">
+    <meta charset="utf-8">
+</head>
+
+<body background="{% static 'img/background.jpg'%}">
+<h1>Case List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>接口名称</th>
+        <th>重要等级</th>
+        <th>请求方式</th>
+        <th>接口地址</th>
+        <th>请求头</th>
+        <th>请求体</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for obj in data_list %}
+    <tr>
+        <td>{% obj.[1] %}</td>
+        <td>{% obj.[2] %}</td>
+        <td>{% obj.[3] %}</td>
+        <td>{% obj.[4] %}</td>
+        <td>{% obj.[5] %}</td>
+        <td>{% obj.[6] %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
